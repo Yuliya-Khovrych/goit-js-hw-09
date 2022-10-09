@@ -1,6 +1,7 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import { Ukrainian } from '../../node_modules/flatpickr/dist/l10n/uk';
+import Notiflix from 'notiflix';
 
 const input = document.querySelector('#datetime-picker');
 const start = document.querySelector('button[data-start]');
@@ -27,7 +28,8 @@ const options = {
     if (selectedDates[0] > new Date()) {
       start.disabled = false;
     } else {
-      window.alert('Please choose a date in the future');
+      //window.alert('Please choose a date in the future');
+      Notiflix.Notify.failure('Please choose a date in the future');
       start.disabled = true;
     }
   },
